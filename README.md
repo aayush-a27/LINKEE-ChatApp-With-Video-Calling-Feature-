@@ -119,7 +119,3 @@ VITE_STREAM_API_KEY=your_stream_api_key
 3. Commit your changes
 4. Push to the branch
 5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License.
