@@ -12,7 +12,7 @@ const Layout = ({ children, showSidebar = true, showNavbar = true }) => {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className="h-screen flex flex-col bg-base-200" data-theme="forest">
+    <div className="min-h-screen flex flex-col bg-base-200" data-theme="forest">
       {/* Navbar */}
       {showNavbar && (
         <div className="h-16">

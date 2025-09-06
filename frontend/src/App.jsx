@@ -10,6 +10,7 @@ import ExplorePage from "./pages/ExplorePage";
 import GroupsPage from "./pages/GroupsPage";
 import GroupChatPage from "./pages/GroupChatPage";
 import SettingsPage from "./pages/SettingsPage";
+import ContactPage from "./pages/ContactPage";
 
 import { Toaster } from "react-hot-toast";
 import PageLoader from "./component/PageLoader";
@@ -151,6 +152,16 @@ const AppContent = () => {
         <Route
           path="/friends"
           element={isAuthenticated ? <FriendsPage /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/contact"
+          element={
+            isAuthenticated && isOnboarded ? (
+              <ContactPage />
+            ) : (
+              <Navigate to={!isAuthenticated ? "/login" : "/onboard"} />
+            )
+          }
         />
         <Route
           path="/settings"

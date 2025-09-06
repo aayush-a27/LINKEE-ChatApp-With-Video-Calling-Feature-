@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { Home, Users, Bell, Compass, UserCheck, Settings } from "lucide-react";
+import { Home, Users, Bell, Compass, UserCheck, Settings, User } from "lucide-react";
 import { useNotifications } from "../hooks/useNotifications";
 
 const Sidebar = ({ sidebarOpen }) => {
@@ -74,6 +74,17 @@ const Sidebar = ({ sidebarOpen }) => {
             )}
           </div>
           <span className="hidden lg:inline ml-3">Notifications</span>
+        </Link>
+
+        {/* Contact */}
+        <Link
+          to="/contact"
+          className={`flex items-center justify-center lg:justify-start gap-0 lg:gap-3 w-full px-2 sm:px-3 py-2 sm:py-3 rounded-2xl sm:rounded-3xl transition btn-ghost ${
+            currentPath === "/contact" ? "btn-active" : ""
+          }`}
+        >
+          <User size={20} className="sm:w-6 sm:h-6" />
+          <span className="hidden lg:inline ml-3">Contact</span>
         </Link>
 
         {/* Settings */}
