@@ -26,19 +26,10 @@ const PORT = process.env.PORT || 5001;
 const server = createServer(app);
 
 app.use(cors({
-    origin: function (origin, callback) {
-        const allowedOrigins = [
-            process.env.FRONTEND_URL,
-            process.env.FRONTEND_LOCAL_URL || "http://localhost:5173"
-        ].filter(Boolean);
-        
-        // Allow Vercel preview URLs
-        if (!origin || allowedOrigins.includes(origin) || origin.includes('vercel.app')) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: [
+        process.env.FRONTEND_URL,
+        process.env.FRONTEND_LOCAL_URL || "http://localhost:5173"
+    ].filter(Boolean),
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
