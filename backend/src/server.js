@@ -28,9 +28,11 @@ const server = createServer(app);
 app.use(cors({
     origin: [
         process.env.FRONTEND_URL,
-        process.env.FRONTEND_LOCAL_URL || "http://localhost:5173"
+        process.env.FRONTEND_LOCAL_URL || "http://localhost:5173",
     ].filter(Boolean),
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
 }));
 app.use(express.json());
 app.use(cookieParser());
